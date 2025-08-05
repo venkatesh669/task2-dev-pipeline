@@ -15,9 +15,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the app...'
+                dir ('myapp'){
                 sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
+    }        
 
         stage('Test') {
             steps {
